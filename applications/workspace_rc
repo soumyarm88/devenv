@@ -1,0 +1,10 @@
+workspace="~/Lab"
+
+function workspaces() {
+  eval "cd $workspace"
+  for dir in */; do
+    echo "\n$dir"
+    eval "cd $workspace && cd $dir && git status -bs"
+  done
+  eval "cd $workspace"
+}

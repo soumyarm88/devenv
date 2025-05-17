@@ -1,0 +1,7 @@
+alias gradlet=gradle test
+alias gradleb=gradle build
+
+function kotlin_lint {
+  ./gradlew ktlintFormat
+  ./gradlew ktlintCheck
+}

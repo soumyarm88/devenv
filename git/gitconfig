@@ -1,0 +1,77 @@
+# This is Git's per-user configuration file.
+[user]
+	username = soumyarm88
+	name = Soumya Maharana
+	email = soumya.r.maharana@gmail.com
+
+[credential]
+	helper = manager-core
+
+[github]
+	user = soumyarm88
+	# token = usage is not recommended
+
+[init]
+	defaultBranch = main
+
+[core]
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    pager = less -FMRiX
+    excludesfile = ~/devenv/git/gitignore
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[push]
+    default = tracking
+
+[pull]
+    rebase = true
+
+
+[color]
+    ui = true
+
+[color "branch"]
+    current = green reverse
+    local = green
+    remote = cyan
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+
+[color "status"]
+    added = green
+    changed = cyan
+    untracked = yellow
+
+
+[alias]
+	st = status
+	ci = commit
+	ca = commit --amend
+    br = branch
+    co = checkout
+    lg = log -p
+    ls = ls-files
+    ignored = ls-files -o -i --exclude-standard
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+    trackmain = branch --set-upstream-to origin/main
+    stashbranch = stash branch
+    branches = branch -avv
+    hardreset = reset --hard HEAD^
+    softreset = reset HEAD^
+    sfiles = show --name-only
+    dfiles = diff --name-only
+    pick=cherry-pick
+    pickc=cherry-pick --continue
+    picka=cherry-pick --abort

@@ -1,0 +1,4 @@
+# shell command prompt
+autoload -U colors && colors
+export PS1="%{$fg[$PROMPT_COLOR]%}$MACHINE_NICK-$USER@%D{%d%b%T}» %{$reset_color%}"
+export RPS1="%{$fg[$PROMPT_COLOR]%} %4c%{$reset_color%}"

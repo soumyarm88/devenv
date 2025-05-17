@@ -1,0 +1,7 @@
+.classpath
+.gradle
+.gradletasknamecache
+.idea
+.kotlin
+.project
+*.iml
