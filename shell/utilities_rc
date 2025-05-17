@@ -1,5 +1,7 @@
 alias uuid=uuidgen | tr '[:upper:]' '[:lower:]'
 alias epoch=date -u +"%F  %T %Z  %s" && date +"%F  %T %Z  %a Week:%W Day:%j"
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
 function tabname {
   # Will use current dir name if called without arg.
@@ -21,4 +23,8 @@ function ldirs() {
   else
   find $1 -mindepth 1 -maxdepth 1 -type l -o -type d;
   fi
+}
+
+paths() {
+  echo $PATH | tr ":" "\n"
 }

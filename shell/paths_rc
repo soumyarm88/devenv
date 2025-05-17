@@ -1,0 +1,17 @@
+export PATH=/bin:$PATH
+export PATH=/usr/bin:$PATH
+export PATH=/sbin:$PATH
+export PATH=/usr/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/Library/Apple/usr/bin:$PATH
+
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/sbin:$PATH
+
+export PATH=/System/Cryptexes/App/usr/bin:$PATH
+export PATH=/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:$PATH
+export PATH=/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:$PATH
+export PATH=/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:$PATH
+
+export PATH=/Users/soumyarm/.cargo/bin:$PATH
+export PATH=/Applications/iTerm.app/Contents/Resources/utilities:$PATH
