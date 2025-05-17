@@ -18,5 +18,6 @@ function ask_and_reload () {
   done
 }
 
-ask_and_reload "~/.zshrc" "$HOME/devenv/shell/zshrc"
-ask_and_reload "~/.vimrc" "$HOME/devenv/vim/vimrc"
+ask_and_reload "~/.zshrc" "$DEVBOX/shell/zshrc"
+ask_and_reload "~/.vimrc" "$DEVBOX/vim/vimrc"
+ask_and_reload "~/.gitconfig" "$DEVBOX/git/gitconfig"
