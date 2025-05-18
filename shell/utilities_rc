@@ -1,5 +1,5 @@
-alias uuid=uuidgen | tr '[:upper:]' '[:lower:]'
-alias epoch=date -u +"%F  %T %Z  %s" && date +"%F  %T %Z  %a Week:%W Day:%j"
+alias uuid=`uuidgen | tr '[:upper:]' '[:lower:]'`
+alias epoch='date -u +"%F  %T %Z  %s" && date +"%F  %T %Z  %a Week:%W Day:%j"'
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 

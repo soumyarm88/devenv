@@ -1,13 +1,19 @@
-#!/bin/bash
+#!/bin/zsh
+
+export DEVENV="$HOME/devenv"
+export RED="\033[31m"
+export YELLOW="\033[33m"
+export RESET="\033[0m"
 
 function ask_and_reload () {
-  eval "ls $1"
-  eval "ls $2"
-  echo "Install/Reinstall $1"
+  echo -e "Do you want to Install/Reinstall $RED$1$RESET from $YELLOW$2$RESET ?"
   select decision in "Yes" "No" "Exit"; do
     case "$decision" in
       [Yy]'es' )
-        eval "cp $2 $1" && eval "source $1" && echo "$1 was installed"
+        eval "cp $2 $1" && echo "$1 was installed."
+        if [[ "$3" == "true" ]]; then
+          eval "source $1" && echo "$1 was sourced."
+        fi
         break;;
       [Ee]'xit' )
         exit 0;;
@@ -18,6 +24,6 @@ function ask_and_reload () {
   done
 }
 
-ask_and_reload "~/.zshrc" "$DEVBOX/shell/zshrc"
-ask_and_reload "~/.vimrc" "$DEVBOX/vim/vimrc"
-ask_and_reload "~/.gitconfig" "$DEVBOX/git/gitconfig"
+ask_and_reload "~/.zshrc" "$DEVENV/shell/zshrc" "true"
+ask_and_reload "~/.vimrc" "$DEVENV/vim/vimrc"
+ask_and_reload "~/.gitconfig" "$DEVENV/git/gitconfig"
