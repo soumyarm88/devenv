@@ -15,8 +15,24 @@ _forward=$'\e[1C'
 
 precmd() {
   vcs_info
-  print -P "┌─%F{green}[ %n ❖ %m ] ➤ %~ %f "
+
+  P_USER=`eval 'print -P "[ %n ✧ %m ] "'`
+  P_PATH=`eval 'print -P "➤ %~ "'`
+  P_CGIT=`eval 'print -P " $vcs_info_msg_0_"'`
+  P_PGIT=$(sed -e 's/%F{[a-z]*}//g' -e 's/%f//g'<<< " $vcs_info_msg_0_")
+  P_TIME=`eval 'print -P " [ %D ✧ %* ]"'`
+
+  P__GAP=$(($COLUMNS-${#P_USER}-${#P_PATH}-${#P_PGIT}-${#P_TIME}))
+
+  #echo "USER:${#P_USER}  PATH:${#P_PATH}  ColoredGIT:${#P_CGIT} ColoredGIT:${#P_PGIT}  TIME:${#P_TIME}  GAP:$P__GAP"
+
+  if [[ -n "$TERM" && -z "$PREV_TERM" ]]; then
+    export PREV_TERM="$TERM"
+  else
+    print "\n"
+  fi
+
+  print -P "%F{010}$P_USER%F{014}$P_PATH%F{236}${(l:$P__GAP::―:)}%f$P_CGIT%F{010}$P_TIME%f"
 }
 
-RPROMPT=$'${_lineup}${vcs_info_msg_0_} %F{green} [ %D ❖ %* ] %f${_linedown}'
-PROMPT=$'└\$'
+PROMPT=$'%F{010}\U0000FF04 %f'
