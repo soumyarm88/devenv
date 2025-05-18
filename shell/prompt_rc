@@ -1,4 +1,22 @@
 # shell command prompt
 autoload -U colors && colors
-export PS1="%{$fg[$PROMPT_COLOR]%}$MACHINE_NICK-$USER@%D{%d%b%T}» %{$reset_color%}"
-export RPS1="%{$fg[$PROMPT_COLOR]%} %4c%{$reset_color%}"
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:git*' formats " %F{cyan}%b%f %m%u%c %a "
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr ' %F{green}✚%f'
+zstyle ':vcs_info:*' unstagedstr ' %F{red}●%f'
+
+_newline=$'\n'
+_lineup=$'\e[1A'
+_linedown=$'\e[1B'
+_forward=$'\e[1C'
+
+precmd() {
+  vcs_info
+  print -P "┌─%F{green}[ %n ❖ %m ] ➤ %~ %f "
+}
+
+RPROMPT=$'${_lineup}${vcs_info_msg_0_} %F{green} [ %D ❖ %* ] %f${_linedown}'
+PROMPT=$'└\$'
