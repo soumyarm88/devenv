@@ -35,4 +35,4 @@ precmd() {
   print -P "%F{010}$P_USER%F{014}$P_PATH%F{236}${(l:$P__GAP::―:)}%f$P_CGIT%F{010}$P_TIME%f"
 }
 
-PROMPT=$'%F{010}\U0000FF04 %f'
+PROMPT=$'%F{010}$ %f'
