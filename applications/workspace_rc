@@ -1,5 +1,14 @@
 workspace="~/Lab"
 
+lab() {
+  cd ~/Lab
+  if [ $# -eq 0 ]; then
+    ldirs
+  else
+    cd $1
+  fi
+}
+
 function workspaces() {
   eval "cd $workspace"
   for dir in */; do
