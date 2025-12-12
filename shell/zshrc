@@ -104,7 +104,8 @@ export ZSH_COMPDUMP="$HOME/.cache/zsh/.zcompdump-$HOST"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export DEVENV="$HOME/devenv"
+export LAB="$HOME/Lab"
+export DEVENV="$LAB/devenv"
 source $DEVENV/shell/paths_rc
 source $DEVENV/shell/utilities_rc
 source $DEVENV/shell/prompt_rc

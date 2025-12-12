@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-export DEVENV="$HOME/devenv"
+export DEVENV="$HOME/Lab/devenv"
 export RED="\033[31m"
 export YELLOW="\033[33m"
 export RESET="\033[0m"

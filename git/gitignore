@@ -5,3 +5,5 @@
 .kotlin
 .project
 *.iml
+.DS_Store
+
