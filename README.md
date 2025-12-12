@@ -1,4 +1,4 @@
-## Installation steps:
+## DevEnv Installation steps:
 
 ### [Optional] Install Homebrew, Git & GitHub
 ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
@@ -24,3 +24,18 @@
 ### [Required] Install new dot files from devenv
 ```.~/Lab/devenv/shell/reload.sh```
 
+## Java installation steps:
+
+### Install different versions
+```brew install --cask temurin```
+```brew install --cask temurin@21```
+```brew install --cask temurin@17```
+
+### Verify current and available versions
+- ```java -version``` shows the current version.
+- devenv provides alternative easy function ```show_java_versions```.
+
+### Set java version
+- devenv comes with a ```set_java_home``` function to set java version easily.
+  - eg. ```set_java_home 17```
+- devenv sets default to 21.
